@@ -1,0 +1,55 @@
+<div id="page-container">
+    <header id="header">
+        <div style = " text-align: center;" class="header-container">
+            <img id="CodeImage" alt="CodeImage" src="images/CodeImage.png">
+            <h1 style="color: #000000; display: inline;">Camera Scan Web</h1>
+        </div>
+    </header>
+
+    <div id="videoContainer">
+        <div id="cameraSelector"><label for="cameradevices">Choose the camera device</label>
+            <select [(ngModel)]="selectedDevice" name="cameradevices" id="cameradevices" (change)="switchCamera()">
+                <option *ngFor="let device of cameraDevices" [ngValue]="device">{{ device.label }}</option>
+            </select>
+        <div id="videoCanvasContainer" style="height: 500px;">
+            <video playsInline width="640" height="360" id="video"></video>
+        </div>            
+    </div>
+
+    <div id="buttonContainer">
+        <button 
+        class="button" 
+        id="toggleCamera" 
+        [style.backgroundColor]="buttonColor" 
+        (click)="toggleCamera()">
+        {{ buttonText }}
+      </button>
+    </div>
+
+    <div id="div3">
+        <table id = "resultTable">
+            <thead>
+                <tr>
+                    <th>
+                        RESULT STRING
+                    </th>
+                    <th>
+                        SYMBOLOGY
+                    </th>
+                    <th>
+                        TIME TAKEN
+                    </th>
+                    
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr *ngFor="let row of tableResults">
+                    <td>{{ row.barcodeData }}</td>
+                    <td>{{ row.symbology }}</td>
+                    <td>{{ row.decodeTime }} ms</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="display: inline-block;"><button class="button" (click)="clearTable()" id = "clearTable">Clear Table</button></div>
+</div>
