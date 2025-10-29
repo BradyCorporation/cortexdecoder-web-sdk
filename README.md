@@ -1,7 +1,6 @@
 ## Important
 - The SDK has a Web Assembly file(.wasm) that needs to be imported in the application.
-import "../node_modules/@your-q-number/codecorp-web_sdk/dist/web/0xxxfefjensssrejriwjdkq9.wasm"   //changed to include q-number
-
+import "../node_modules/@your-q-number/codecorp-web_sdk/dist/web/0xxxfefjensssrejriwjdkq9.wasm"  
 However, the application bundler should allow the WASM file to be uploaded to the browser. The WebPack configuration needed to allow this is mentioned below -
 //wasm files should not be processed but just be emitted.
 
